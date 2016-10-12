@@ -22,8 +22,8 @@ public class ScreenDownActivity extends Activity{
     private Dialog dialog;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_down);
         final Window win = getWindow();
         win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
@@ -32,9 +32,9 @@ public class ScreenDownActivity extends Activity{
                 | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
         createDialog();
-
-
     }
+
+
 
     void createDialog(){
         AlertDialog.Builder builder=new AlertDialog.Builder(this);

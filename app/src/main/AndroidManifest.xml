@@ -28,6 +28,13 @@
             android:taskAffinity=""
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
             ></activity>
+
+        <receiver android:name=".receiver.MyReceiver">
+            <intent-filter>
+                <action android:name="testScreenDown"></action>
+            </intent-filter>
+        </receiver>
+        <service android:name=".service.MyService"></service>
     </application>
 
 </manifest>
