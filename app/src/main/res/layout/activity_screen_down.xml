@@ -10,7 +10,7 @@
         android:textSize="20sp"
         android:textColor="@color/colorPrimaryDark"
         android:layout_centerInParent="true"
-        android:text="2312312321313"/>
+        android:text="我是锁屏弹窗"/>
 
 
 </RelativeLayout>

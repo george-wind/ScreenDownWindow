@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
 
+        <!-- 锁屏弹窗界面-->
         <activity
             android:name=".activity.ScreenDownActivity"
             android:excludeFromRecents="true"
@@ -29,12 +30,13 @@
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
             ></activity>
 
+        <!-- 模拟接受到的广播-->
         <receiver android:name=".receiver.MyReceiver">
             <intent-filter>
                 <action android:name="testScreenDown"></action>
             </intent-filter>
         </receiver>
-        <service android:name=".service.MyService"></service>
+
     </application>
 
 </manifest>
