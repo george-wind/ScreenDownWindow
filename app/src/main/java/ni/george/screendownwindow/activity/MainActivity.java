@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import ni.george.screendownwindow.R;
+import ni.george.screendownwindow.service.MyService;
 
 public class MainActivity extends Activity {
     private Context mContext;
@@ -27,14 +28,24 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext=this;
+        Intent intent=new Intent(mContext, MyService.class);
+        startService(intent);
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Intent intent=new Intent();
+//                intent.setAction("testScreenDown");
+//                sendBroadcast(intent);
+//            }
+//        },10*1000);
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent=new Intent(mContext,ScreenDownActivity.class);
-                startActivity(intent);
-            }
-        },10*1000);
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Intent intent=new Intent(mContext,ScreenDownActivity.class);
+//                startActivity(intent);
+//            }
+//        },10*1000);
 
 
     }
