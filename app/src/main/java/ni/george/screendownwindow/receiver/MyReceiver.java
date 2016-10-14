@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.NotificationCompat;
 
+import java.io.File;
+
 import ni.george.screendownwindow.R;
 import ni.george.screendownwindow.activity.MainActivity;
 import ni.george.screendownwindow.activity.ScreenDownActivity;
@@ -52,5 +54,6 @@ public class MyReceiver extends BroadcastReceiver {
 
         mBuilder.setContentIntent(contentIntent);
         mNotificationManager.notify(0, mBuilder.build());
+
     }
 }
