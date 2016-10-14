@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,9 +28,14 @@ public class ScreenDownActivity extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_down);
         final Window win = getWindow();
-        win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+        win.addFlags
+                        //让该界面显示在锁屏屏幕之上（或者说短暂的隐取锁屏界面）
+                (WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+                        //在未设置锁屏功能时自动解锁
                 | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+                        //在该界面显示时，保持屏幕常亮
 //                | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                        //唤醒屏幕
                 | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
         initViews();
@@ -38,13 +44,13 @@ public class ScreenDownActivity extends Activity implements View.OnClickListener
 
     @Override
     protected void onNewIntent(Intent intent) {
-        PowerManager pm = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
-        if (!pm.isScreenOn()) {
-            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP |
-                    PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "bright");
-            wl.acquire();
-            wl.release();
-        }
+//        PowerManager pm = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
+//        if (!pm.isScreenOn()) {
+//            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP |
+//                    PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "bright");
+//            wl.acquire();
+//            wl.release();
+//        }
     }
 
     private void initViews() {
@@ -63,7 +69,7 @@ public class ScreenDownActivity extends Activity implements View.OnClickListener
         switch (v.getId()) {
             case R.id.ll_msg:
                 long newClickTime = System.currentTimeMillis();
-                if (newClickTime - oldClickTime < 2 * 1000) {
+                if ((newClickTime - oldClickTime) < 2 * 1000) {
                     intent.setClass(mContext, MainActivity.class);
                     startActivity(intent);
                     finish();
