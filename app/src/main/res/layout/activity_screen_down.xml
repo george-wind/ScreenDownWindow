@@ -4,13 +4,57 @@
     android:layout_height="match_parent"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@color/colorPrimaryDark"
+    <LinearLayout
+        android:id="@+id/ll_msg"
         android:layout_centerInParent="true"
-        android:text="我是锁屏弹窗"/>
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:background="@color/trans_black"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="双击进入应用"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:layout_centerInParent="true"/>
+            <Button
+                android:id="@+id/cancel"
+                android:background="@android:drawable/ic_menu_close_clear_cancel"
+                android:layout_alignParentRight="true"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/ic_launcher"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="您有新的消息"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 
 </RelativeLayout>

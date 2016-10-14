@@ -18,7 +18,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext=this;
-
         //发一条广播（延时5秒为了锁屏）
         handler.postDelayed(new Runnable() {
             @Override
